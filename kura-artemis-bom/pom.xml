@@ -242,11 +242,6 @@
             <!-- This project's bundles -->
             <dependency>
                 <groupId>org.eclipse.kura</groupId>
-                <artifactId>org.apache.activemq.artemis</artifactId>
-                <version>${org.apache.activemq.artemis.kura.wrapper.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.kura</groupId>
                 <artifactId>org.eclipse.kura.broker.artemis.core</artifactId>
                 <version>${org.eclipse.kura.broker.artemis.core.version}</version>
             </dependency>
@@ -275,10 +270,6 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-text</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.kura</groupId>
-            <artifactId>org.apache.activemq.artemis</artifactId>
         </dependency>
         <dependency>
             <groupId>org.eclipse.kura</groupId>

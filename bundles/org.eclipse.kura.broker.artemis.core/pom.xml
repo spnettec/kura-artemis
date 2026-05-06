@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-
     Copyright (c) 2017, 2025 Red Hat Inc and others
-  
+
     This program and the accompanying materials are made
     available under the terms of the Eclipse Public License 2.0
     which is available at https://www.eclipse.org/legal/epl-2.0/
- 
-	SPDX-License-Identifier: EPL-2.0
-	
-	Contributors:
-	 Red Hat Inc
-     Eurotech
 
+    SPDX-License-Identifier: EPL-2.0
+
+    Contributors:
+     Red Hat Inc
+     Eurotech
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -30,17 +27,112 @@
     <packaging>eclipse-plugin</packaging>
 
     <properties>
-        <sonar.coverage.jacoco.xmlReportPaths>
-            ${project.basedir}/../../tests/*/target/site/jacoco-aggregate/jacoco.xml
-        </sonar.coverage.jacoco.xmlReportPaths>
+        <jctools-core.version>4.0.5</jctools-core.version>
+        <caffeine.version>3.2.0</caffeine.version>
+        <activemq-artemis-native.version>2.0.0</activemq-artemis-native.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.eclipse.kura</groupId>
-            <artifactId>org.apache.activemq.artemis</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-    </dependencies>
-    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/lib</outputDirectory>
+                            <stripVersion>true</stripVersion>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-server</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-commons</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-core-client</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-jdbc-store</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-jms-client</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-jms-server</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-journal</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-selector</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-service-extensions</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-mqtt-protocol</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-amqp-protocol</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-stomp-protocol</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.activemq</groupId>
+                                    <artifactId>activemq-artemis-native</artifactId>
+                                    <version>${activemq-artemis-native.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.apache.artemis</groupId>
+                                    <artifactId>artemis-log-annotation-processor</artifactId>
+                                    <version>${org.apache.activemq.artemis.upstream.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>org.jctools</groupId>
+                                    <artifactId>jctools-core</artifactId>
+                                    <version>${jctools-core.version}</version>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>com.github.ben-manes.caffeine</groupId>
+                                    <artifactId>caffeine</artifactId>
+                                    <version>${caffeine.version}</version>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -368,7 +368,6 @@
     </profiles>
 
     <modules>
-        <module>org.apache.activemq.artemis</module>
         <module>org.eclipse.kura.broker.artemis.core</module>
         <module>org.eclipse.kura.broker.artemis.simple.mqtt</module>
         <module>org.eclipse.kura.broker.artemis.xml</module>
