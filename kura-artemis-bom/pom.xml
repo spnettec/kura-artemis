@@ -30,15 +30,16 @@
     <packaging>pom</packaging>
     <name>Kura Artemis BOM</name>
 
+    <properties>
+        <io.netty.version>4.2.12.Final</io.netty.version>
+        <jakarta.inject.version>2.0.1</jakarta.inject.version>
+        <jakarta.annotation.version>2.1.1</jakarta.annotation.version>
+        <geronimo-jms.version>1.0-alpha-2</geronimo-jms.version>
+        <commons-lang3.version>3.20.0</commons-lang3.version>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.eclipse.kura</groupId>
-                <artifactId>target-platform-bom</artifactId>
-                <version>6.0.0-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <!-- External deps that are not OSGi bundles, that will be wrapped by our org.apache.activemq.artemis bundle -->
             <!-- START artemis deps -->
             <dependency>
@@ -290,71 +291,85 @@
         <dependency>
             <groupId>jakarta.inject</groupId>
             <artifactId>jakarta.inject-api</artifactId>
+                <version>${jakarta.inject.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
+                <version>${jakarta.annotation.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-jms_2.0_spec</artifactId>
+                <version>${geronimo-jms.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-buffer</artifactId>
+                <version>${io.netty.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-transport</artifactId>
+                <version>${io.netty.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-codec-http</artifactId>
+                <version>${io.netty.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-common</artifactId>
+                <version>${io.netty.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-handler</artifactId>
+                <version>${io.netty.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-transport-native-epoll</artifactId>
+                <version>${io.netty.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-transport-classes-epoll</artifactId>
+                <version>${io.netty.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-transport-native-kqueue</artifactId>
+                <version>${io.netty.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-transport-classes-kqueue</artifactId>
+                <version>${io.netty.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-codec</artifactId>
+                <version>${io.netty.version}</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
