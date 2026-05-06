@@ -174,10 +174,30 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
+                        <!-- Embed all transitives except io.netty: monorepo ships netty 4.2 as
+                             separate OSGi bundles and we want the wrapper to consume those rather
+                             than ship a private netty 4.1 copy that would split-package against
+                             the rest of Kura. -->
+                        <Embed-Dependency>*;scope=compile|runtime;groupId=!io.netty</Embed-Dependency>
+                        <Embed-Transitive>true</Embed-Transitive>
                         <Import-Package>
                             org.apache.activemq.artemis.jdbc.store.*;version="${org.apache.activemq.artemis.upstream.version}";resolution:=optional,
                             org.apache.xpath.*;resolution:=optional,
+                            <!-- haproxy: artemis uses it for proxy-protocol detection; monorepo doesn't ship netty-codec-haproxy -->
+                            io.netty.handler.codec.haproxy.*;resolution:=optional,
+                            <!-- JDBC drivers — only needed if artemis JDBC store is used -->
+                            org.postgresql.*;resolution:=optional,
+                            com.mysql.*;resolution:=optional,
+                            oracle.jdbc.*;resolution:=optional,
+                            org.hsqldb.*;resolution:=optional,
+                            org.mariadb.*;resolution:=optional,
+                            org.apache.derby.*;resolution:=optional,
+                            com.microsoft.sqlserver.*;resolution:=optional,
+                            <!-- internal sun classes — JDK-only, not a real OSGi import -->
+                            sun.security.*;resolution:=optional,
+                            sun.reflect.*;resolution:=optional,
+                            <!-- bouncycastle (provided by monorepo if used; optional otherwise) -->
+                            org.bouncycastle.*;resolution:=optional,
                             org.apache.commons.text,
                             org.apache.commons.lang3,
                             <!-- START micrometer-core optional dependencies -->
