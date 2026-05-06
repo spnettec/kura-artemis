@@ -44,6 +44,11 @@
             <!-- START artemis deps -->
             <dependency>
                 <groupId>org.apache.artemis</groupId>
+                <artifactId>artemis-server-osgi</artifactId>
+                <version>${org.apache.activemq.artemis.upstream.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-server</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>

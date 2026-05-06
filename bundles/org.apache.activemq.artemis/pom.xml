@@ -32,44 +32,18 @@
     <description>ActiveMQ Artemis dependencies for Eclipse Kura</description>
 
     <dependencies>
-        <!-- START artemis deps -->
+        <!-- Apache official OSGi aggregator: pulls all 9 artemis sub-modules
+             transitively. We embed the transitives but exclude the outer
+             artemis-server-osgi.jar itself (it's a fat jar with nested jars
+             that OSGi can't traverse). -->
         <dependency>
             <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-commons</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-core-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-journal</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-selector</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-jms-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-jms-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-service-extensions</artifactId>
+            <artifactId>artemis-server-osgi</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.artemis</groupId>
             <artifactId>artemis-lockmanager-api</artifactId>
         </dependency>
-        <!-- END artemis deps -->
          <!-- START jakarta deps -->
         <dependency>
             <groupId>jakarta.jms</groupId>
@@ -174,11 +148,13 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <!-- Embed all transitives except io.netty: monorepo ships netty 4.2 as
-                             separate OSGi bundles and we want the wrapper to consume those rather
-                             than ship a private netty 4.1 copy that would split-package against
-                             the rest of Kura. -->
-                        <Embed-Dependency>*;scope=compile|runtime;groupId=!io.netty</Embed-Dependency>
+                        <!-- Embed all transitives except: (1) io.netty — monorepo ships netty 4.2
+                             as separate OSGi bundles and we want to consume those rather than
+                             ship a private 4.1 copy; (2) artemis-server-osgi — it's an Apache
+                             fat OSGi bundle we depend on only as the canonical aggregator;
+                             embedding the outer jar would create a jar-in-jar OSGi can't traverse,
+                             so we let bnd embed only its transitively-pulled artemis-* modules. -->
+                        <Embed-Dependency>*;scope=compile|runtime;groupId=!io.netty;artifactId=!artemis-server-osgi</Embed-Dependency>
                         <Embed-Transitive>true</Embed-Transitive>
                         <Import-Package>
                             org.apache.activemq.artemis.jdbc.store.*;version="${org.apache.activemq.artemis.upstream.version}";resolution:=optional,
