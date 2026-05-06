@@ -43,47 +43,47 @@
             <!-- External deps that are not OSGi bundles, that will be wrapped by our org.apache.activemq.artemis bundle -->
             <!-- START artemis deps -->
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-server</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-commons</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-core-client</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-journal</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-selector</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-jms-client</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-jms-server</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-service-extensions</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-lockmanager-api</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>
@@ -230,7 +230,7 @@
                 <version>${activemq-artemis-native.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.activemq</groupId>
+                <groupId>org.apache.artemis</groupId>
                 <artifactId>artemis-mqtt-protocol</artifactId>
                 <version>${org.apache.activemq.artemis.upstream.version}</version>
             </dependency>

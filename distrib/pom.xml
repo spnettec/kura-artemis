@@ -49,10 +49,12 @@
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-artemis-native</artifactId>
+            <version>${activemq-artemis-native.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.activemq</groupId>
+            <groupId>org.apache.artemis</groupId>
             <artifactId>artemis-mqtt-protocol</artifactId>
+            <version>${org.apache.activemq.artemis.upstream.version}</version>
         </dependency>
         <!-- This project's bundles -->
         <dependency>
