@@ -11,6 +11,7 @@
 
     Contributors:
      Eurotech
+     Red Hat Inc
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -39,18 +40,6 @@
         <skip.artifact.signing>true</skip.artifact.signing>
         <keystore.type>JKS</keystore.type>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.eclipse.kura</groupId>
-                <artifactId>kura-artemis-bom</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <pluginManagement>
@@ -121,8 +110,6 @@
                 </plugin>
 
                 <plugin>
-                    <!-- used for generating SCR descriptors in the Maven Build, supports M2E
-                    Incremental builds as well -->
                     <groupId>biz.aQute.bnd</groupId>
                     <artifactId>bnd-maven-plugin</artifactId>
                     <version>${bnd-version}</version>
@@ -167,28 +154,6 @@
                     </configuration>
                 </plugin>
 
-                <!-- enable jar signing via Eclipse Signing Server -->
-                <!-- See
-                http://codeandme.blogspot.com/2017/04/host-your-own-eclipse-signing-server.html -->
-                <!-- Note that https is not supported -->
-                <plugin>
-                    <groupId>org.eclipse.cbi.maven.plugins</groupId>
-                    <artifactId>eclipse-jarsigner-plugin</artifactId>
-                    <version>1.1.5</version>
-                    <executions>
-                        <execution>
-                            <id>sign</id>
-                            <goals>
-                                <goal>sign</goal>
-                            </goals>
-                            <phase>verify</phase>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <signerUrl>http://localhost:8080/jarsigner</signerUrl>
-                    </configuration>
-                </plugin>
-
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
@@ -209,23 +174,6 @@
                                 <skipIfSnapshot>true</skipIfSnapshot>
                                 <failIfExists>true</failIfExists>
                             </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <plugin>
-                    <groupId>biz.aQute.bnd</groupId>
-                    <artifactId>bnd-baseline-maven-plugin</artifactId>
-                    <version>${bnd-version}</version>
-                    <configuration>
-                        <failOnMissing>false</failOnMissing>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>baseline</id>
-                            <goals>
-                                <goal>baseline</goal>
-                            </goals>
                         </execution>
                     </executions>
                 </plugin>

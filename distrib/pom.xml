@@ -31,43 +31,19 @@
 
     <dependencies>
         <dependency>
-            <groupId>commons-beanutils</groupId>
-            <artifactId>commons-beanutils</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-text</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-artemis-native</artifactId>
-            <version>${activemq-artemis-native.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-mqtt-protocol</artifactId>
-            <version>${org.apache.activemq.artemis.upstream.version}</version>
-        </dependency>
-        <!-- This project's bundles -->
-        <dependency>
             <groupId>org.eclipse.kura</groupId>
             <artifactId>org.eclipse.kura.broker.artemis.core</artifactId>
+            <version>${org.eclipse.kura.broker.artemis.core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.kura</groupId>
             <artifactId>org.eclipse.kura.broker.artemis.simple.mqtt</artifactId>
+            <version>${org.eclipse.kura.broker.artemis.simple.mqtt.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.kura</groupId>
             <artifactId>org.eclipse.kura.broker.artemis.xml</artifactId>
+            <version>${org.eclipse.kura.broker.artemis.xml.version}</version>
         </dependency>
     </dependencies>
 
@@ -77,8 +53,6 @@
     </organization>
 
     <properties>
-        <addon.installation.dir.level3>/opt/eclipse/kura/siblings/artemis/3</addon.installation.dir.level3>
-        <addon.installation.dir.level3s>/opt/eclipse/kura/siblings/artemis/3s</addon.installation.dir.level3s>
         <addon.installation.dir.level4>/opt/eclipse/kura/siblings/artemis/4</addon.installation.dir.level4>
         <addon.installation.dir.level4s>/opt/eclipse/kura/siblings/artemis/4s</addon.installation.dir.level4s>
 
@@ -209,40 +183,6 @@
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>fetch-bundles-start-level-3</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <includeArtifactIds>
-                                activemq-artemis-native,
-                                commons-beanutils,
-                                commons-collections,
-                                commons-text,
-                                commons-logging
-                            </includeArtifactIds>
-                            <excludeTransitive>true</excludeTransitive>
-                            <stripVersion>false</stripVersion>
-                            <outputDirectory>${project.build.directory}/plugins_3</outputDirectory>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>fetch-bundles-start-level-3s</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <includeArtifactIds>
-                                artemis-mqtt-protocol
-                            </includeArtifactIds>
-                            <excludeTransitive>true</excludeTransitive>
-                            <stripVersion>false</stripVersion>
-                            <outputDirectory>${project.build.directory}/plugins_3s</outputDirectory>
-                        </configuration>
-                    </execution>
-                    <execution>
                         <id>fetch-bundles-start-level-4</id>
                         <phase>generate-sources</phase>
                         <goals>
@@ -292,28 +232,6 @@
                             <controlDir>${project.basedir}/deb/control</controlDir>
                             <skipPOMs>false</skipPOMs>
                             <dataSet>
-                                <data>
-                                    <src>${project.build.directory}/plugins_3</src>
-                                    <type>directory</type>
-                                    <mapper>
-                                        <type>perm</type>
-                                        <prefix>${addon.installation.dir.level3}</prefix>
-                                        <user>kurad</user>
-                                        <group>kurad</group>
-                                        <filemode>600</filemode>
-                                    </mapper>
-                                </data>
-                                <data>
-                                    <src>${project.build.directory}/plugins_3s</src>
-                                    <type>directory</type>
-                                    <mapper>
-                                        <type>perm</type>
-                                        <prefix>${addon.installation.dir.level3s}</prefix>
-                                        <user>kurad</user>
-                                        <group>kurad</group>
-                                        <filemode>600</filemode>
-                                    </mapper>
-                                </data>
                                 <data>
                                     <src>${project.build.directory}/plugins_4</src>
                                     <type>directory</type>

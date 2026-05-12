@@ -64,5 +64,6 @@ Bundle-ClassPath: .,
  lib/artemis-log-annotation-processor.jar,
  lib/jctools-core.jar,
  lib/caffeine.jar
-Export-Package: org.eclipse.kura.broker.artemis.core;version="1.0.0";uses:="org.apache.activemq.artemis.core.config.impl"
+Export-Package: org.eclipse.kura.broker.artemis.core
+DynamicImport-Package: *
 Provide-Capability: osgi.serviceloader;osgi.serviceloader=org.apache.activemq.artemis.spi.core.protocol.ProtocolManagerFactory
