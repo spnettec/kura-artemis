@@ -45,6 +45,27 @@
             <artifactId>org.eclipse.kura.broker.artemis.xml</artifactId>
             <version>${org.eclipse.kura.broker.artemis.xml.version}</version>
         </dependency>
+        <!-- Support libs (previously shipped via monorepo kura-core.deb). -->
+        <dependency>
+            <groupId>org.apache.qpid</groupId>
+            <artifactId>proton-j</artifactId>
+            <version>${apache-qpid-proton-j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.qpid</groupId>
+            <artifactId>qpid-jms-client</artifactId>
+            <version>${apache-qpid-jms-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>${commons-beanutils.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${commons-collections.version}</version>
+        </dependency>
     </dependencies>
 
     <organization>
@@ -190,8 +211,14 @@
                         </goals>
                         <configuration>
                             <includeArtifactIds>
-                                org.eclipse.kura.broker.artemis.core
+                                org.eclipse.kura.broker.artemis.core,
+                                proton-j,
+                                qpid-jms-client,
+                                commons-beanutils,
+                                commons-collections
                             </includeArtifactIds>
+                            <excludeTypes>pom</excludeTypes>
+                            <excludeClassifiers>sources,javadoc</excludeClassifiers>
                             <stripVersion>false</stripVersion>
                             <outputDirectory>${project.build.directory}/plugins_4</outputDirectory>
                         </configuration>

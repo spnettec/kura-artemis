@@ -29,6 +29,12 @@
         <org.eclipse.kura.broker.artemis.core.version>2.0.0-SNAPSHOT</org.eclipse.kura.broker.artemis.core.version>
         <org.eclipse.kura.broker.artemis.simple.mqtt.version>2.0.0-SNAPSHOT</org.eclipse.kura.broker.artemis.simple.mqtt.version>
         <org.eclipse.kura.broker.artemis.xml.version>2.0.0-SNAPSHOT</org.eclipse.kura.broker.artemis.xml.version>
+
+        <!-- Sibling-only support libs (no longer shipped by monorepo kura-core.deb). -->
+        <apache-qpid-proton-j.version>0.34.1</apache-qpid-proton-j.version>
+        <apache-qpid-jms-client.version>2.10.0</apache-qpid-jms-client.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
     </properties>
 
     <modules>
