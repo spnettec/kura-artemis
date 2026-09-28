@@ -67,4 +67,3 @@ Bundle-ClassPath: .,
 Export-Package: org.eclipse.kura.broker.artemis.core
 DynamicImport-Package: *
 Provide-Capability: osgi.serviceloader;osgi.serviceloader=org.apache.activemq.artemis.spi.core.protocol.ProtocolManagerFactory
-Bundle-RequiredExecutionEnvironment: JavaSE-21

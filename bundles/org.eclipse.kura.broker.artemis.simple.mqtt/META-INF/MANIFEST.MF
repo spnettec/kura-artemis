@@ -23,4 +23,3 @@ Import-Package: javax.xml,
  org.w3c.dom
 Service-Component: OSGI-INF/*.xml
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-21
