@@ -14,48 +14,49 @@
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.eclipse.kura</groupId>
+        <artifactId>kura-build-parent</artifactId>
+        <version>6.0.0-SNAPSHOT</version>
+        <relativePath />
+    </parent>
     <groupId>org.eclipse.kura</groupId>
-    <artifactId>kura-build-parent</artifactId>
-    <version>6.0.0-SNAPSHOT</version>
-    <relativePath />
-  </parent>
-  <groupId>org.eclipse.kura</groupId>
-  <artifactId>kura-artemis</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <properties>
-    <maven.compiler.release>21</maven.compiler.release>
-    <org.apache.activemq.artemis.upstream.version>2.53.0</org.apache.activemq.artemis.upstream.version>
-    <org.eclipse.kura.broker.artemis.core.version>2.0.0-SNAPSHOT</org.eclipse.kura.broker.artemis.core.version>
-    <org.eclipse.kura.broker.artemis.simple.mqtt.version>2.0.0-SNAPSHOT</org.eclipse.kura.broker.artemis.simple.mqtt.version>
-    <org.eclipse.kura.broker.artemis.xml.version>2.0.0-SNAPSHOT</org.eclipse.kura.broker.artemis.xml.version>
-    <apache-qpid-proton-j.version>0.34.1</apache-qpid-proton-j.version>
-    <apache-qpid-jms-client.version>2.10.0</apache-qpid-jms-client.version>
-    <commons-beanutils.version>1.9.4</commons-beanutils.version>
-    <commons-collections.version>3.2.2</commons-collections.version>
-  </properties>
-  <modules>
-    <module>bundles</module>
-    <module>distrib</module>
-    <module>dp</module>
-  </modules>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>cbi</id>
-      <url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
-    </pluginRepository>
-  </pluginRepositories>
-  <repositories>
-    <repository>
-      <id>kura-addons</id>
-      <name>Kura Addons Maven Repository</name>
-      <url>https://raw.github.com/eurotech/kura_addons/mvn-repo/</url>
-    </repository>
-    <repository>
-      <id>central</id>
-      <url>https://repo1.maven.org/maven2/</url>
-    </repository>
-  </repositories>
+    <artifactId>kura-artemis</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <org.apache.activemq.artemis.upstream.version>2.53.0</org.apache.activemq.artemis.upstream.version>
+        <org.eclipse.kura.broker.artemis.core.version>2.0.0-SNAPSHOT</org.eclipse.kura.broker.artemis.core.version>
+        <org.eclipse.kura.broker.artemis.simple.mqtt.version>2.0.0-SNAPSHOT</org.eclipse.kura.broker.artemis.simple.mqtt.version>
+        <org.eclipse.kura.broker.artemis.xml.version>2.0.0-SNAPSHOT</org.eclipse.kura.broker.artemis.xml.version>
+        <apache-qpid-proton-j.version>0.34.1</apache-qpid-proton-j.version>
+        <apache-qpid-jms-client.version>2.10.0</apache-qpid-jms-client.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+    </properties>
+    <modules>
+        <module>bundles</module>
+        <module>distrib</module>
+        <module>dp</module>
+    </modules>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>cbi</id>
+            <url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>kura-addons</id>
+            <name>Kura Addons Maven Repository</name>
+            <url>https://raw.github.com/eurotech/kura_addons/mvn-repo/</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
 </project>
+

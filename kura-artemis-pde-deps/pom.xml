@@ -12,19 +12,13 @@
     Contributors:
      Eurotech
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.eclipse.kura</groupId>
     <artifactId>kura-artemis-pde-deps</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-
     <packaging>pom</packaging>
     <name>Kura Artemis PDE Deps</name>
-
     <!-- Eclipse-IDE-only delta: developers add this pom as a Maven Artifact
          Target Entry on top of the monorepo target so org.apache.qpid.*,
          org.apache.commons.beanutils, and org.apache.commons.collections
@@ -52,7 +46,6 @@
             <version>3.2.2</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -65,5 +58,5 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
+
